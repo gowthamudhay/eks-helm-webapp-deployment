@@ -1,21 +1,46 @@
-🚀 Deployed my first application on AWS EKS using Helm!
+# EKS Helm Web Application Deployment
 
-In this project I built and deployed a containerized web application using:
+This project demonstrates deploying a containerized web application to AWS EKS using Helm.
 
-• Docker
-• Kubernetes
-• Helm
-• AWS EKS
-• Docker Hub
+## Technologies Used
 
-Workflow:
-Docker Image → Docker Hub → Helm Chart → Kubernetes Deployment → AWS LoadBalancer
+- Docker
+- Kubernetes
+- Helm
+- AWS EKS
+- Docker Hub
 
-The application is packaged with Helm and deployed to an EKS cluster, where it is exposed via a LoadBalancer service.
+## Architecture
 
-This project helped me understand how Helm simplifies Kubernetes deployments and how applications are deployed in real cloud environments.
+Browser → AWS Load Balancer → Kubernetes Service → Pod → Docker Container
 
-GitHub Project:
-[Your GitHub link]
+## Steps Performed
 
-#Kubernetes #DevOps #AWS #Helm #CloudComputing
+1. Created a simple web application (HTML + Nginx)
+2. Built Docker image
+3. Pushed image to Docker Hub
+4. Created Helm chart
+5. Deployed application to EKS cluster
+6. Exposed application using LoadBalancer service
+
+## Commands Used
+
+### Build Docker Image
+
+docker build -t <dockerhub-username>/simple-webapp .
+
+### Push Image
+
+docker push <dockerhub-username>/simple-webapp
+
+### Deploy with Helm
+
+helm install webapp ./webapp-chart
+
+### Verify Pods
+
+kubectl get pods
+
+### Get Public URL
+
+kubectl get svc
